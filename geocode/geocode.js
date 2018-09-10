@@ -3,7 +3,7 @@ const request = require('request');
 
 
 var geocodeAddress = (address) => {
-    var encodedAdress = decodeURIComponent('address');
+    var encodedAddress = decodeURIComponent('address');
     request({
         url : `https://cloud.google.com/maps-platform/maps/apigeocode/json?address=${encodedAddress}`,
         json : true

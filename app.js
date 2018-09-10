@@ -20,8 +20,14 @@ geocode.geocodeAddress(argv.address,(errorMessage , results) => {
     if(errorMessage){
         console.log(errorMessage);
     } else {
-        console.log(JSON.stringify(results , undefined , 2 ));
+        console.log(results.address);
+        weather.getWeather(results.lat , results.long , (errorMessage , weatherResults) => {
+            if(errorMessage){
+                console.log(errorMessage);
+            } else {
+                console.log(`its currently ${weatherResults.temperature} but feels like ${weatherResults.apparentTemperature}`);
+            }
+        });
     }
 });
 
-weather.getWeather();
